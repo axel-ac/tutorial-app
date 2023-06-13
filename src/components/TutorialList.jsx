@@ -13,7 +13,7 @@ import { AiFillDelete } from "react-icons/ai"
 //     description: "JS library for UI design",
 //   },
 // ]
-const TutorialList = ({tutorials}) => {
+const TutorialList = ({tutorials, getTutorials}) => {
 
   return (
     <div className="container mt-4">

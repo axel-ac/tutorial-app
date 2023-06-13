@@ -9,22 +9,25 @@ const Home = () => {
   const BASE_URL = "https://tutorial-api.fullstack.clarusway.com/tutorials/";
 
   const getTutorials = async () => {
-    const { data } = await axios(BASE_URL);
-    setTutorials(data)
-    // console.log(data);
+    try {
+      const { data } = await axios(BASE_URL);
+      setTutorials(data) 
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   console.log(tutorials)
 
-  // didmount
+  // componentDidmount
   useEffect(() => {
     getTutorials();
   }, []);
 
   return (
     <>
-      <AddTutorial />
-      <TutorialList tutorials = {tutorials}/>
+      <AddTutorial getTutorials = {getTutorials} />
+      <TutorialList tutorials = {tutorials} getTutorials = {getTutorials} />
     </>
   );
 };
