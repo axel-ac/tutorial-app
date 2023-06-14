@@ -2,6 +2,7 @@ import { FaEdit } from "react-icons/fa"
 import { AiFillDelete } from "react-icons/ai"
 import axios from "axios";
 import EditTutorial from "./EditTutorial";
+import { useState } from "react";
 
 // const tutorials = [
 //   {
@@ -16,10 +17,13 @@ import EditTutorial from "./EditTutorial";
 //   },
 // ]
 const TutorialList = ({tutorials, getTutorials}) => {
+
+  const [item, setItem] = useState("")
+
   const deleteTutorial = async (id) => {
     const BASE_URL = "https://tutorial-api.fullstack.clarusway.com/tutorials/";
     try {
-      await axios.delete(`${BASE_URL}/${id}/`)
+      await axios.delete(`${BASE_URL}${id}/`)
     } catch (error) {
       console.log(error)
     }
@@ -41,7 +45,7 @@ const TutorialList = ({tutorials, getTutorials}) => {
         </thead>
         <tbody>
           {tutorials?.map((item) => {
-            const { id, title, description } = item
+            const { id, title, description } = item;
             return (
               <tr key={id}>
                 <th>{id}</th>
@@ -54,6 +58,7 @@ const TutorialList = ({tutorials, getTutorials}) => {
                     className="me-2 text-warning"
                     data-bs-toggle="modal"
                     data-bs-target="#edit-tutor"
+                    onClick={() => setItem(item)}
                   />
                   <AiFillDelete
                     size={22}
@@ -67,9 +72,9 @@ const TutorialList = ({tutorials, getTutorials}) => {
           })}
         </tbody>
       </table>
-      <EditTutorial />
+      <EditTutorial item={item} getTutorials={getTutorials} />
     </div>
-  )
+  );
 }
 
 export default TutorialList
