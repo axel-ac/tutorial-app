@@ -1,5 +1,5 @@
-import { FaEdit } from "react-icons/fa"
-import { AiFillDelete } from "react-icons/ai"
+import { FaEdit } from "react-icons/fa";
+import { AiFillDelete } from "react-icons/ai";
 import axios from "axios";
 import EditTutorial from "./EditTutorial";
 import { useState } from "react";
@@ -16,19 +16,15 @@ import { useState } from "react";
 //     description: "JS library for UI design",
 //   },
 // ]
-const TutorialList = ({tutorials, getTutorials}) => {
-
-  const [item, setItem] = useState("")
+const TutorialList = ({ tutorials, getTutorials }) => {
+  const [item, setItem] = useState("");
+  console.log(item);
 
   const deleteTutorial = async (id) => {
     const BASE_URL = "https://tutorial-api.fullstack.clarusway.com/tutorials/";
-    try {
-      await axios.delete(`${BASE_URL}${id}/`)
-    } catch (error) {
-      console.log(error)
-    }
-    getTutorials()
-  }
+    await axios.delete(`${BASE_URL}${id}/`);
+    getTutorials();
+  };
 
   return (
     <div className="container mt-4">
@@ -75,6 +71,6 @@ const TutorialList = ({tutorials, getTutorials}) => {
       <EditTutorial item={item} getTutorials={getTutorials} />
     </div>
   );
-}
+};
 
-export default TutorialList
+export default TutorialList;

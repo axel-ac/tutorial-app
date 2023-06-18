@@ -1,7 +1,7 @@
-import axios from "axios";
+import { useEffect, useState } from "react";
 import AddTutorial from "../components/AddTutorial";
 import TutorialList from "../components/TutorialList";
-import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Home = () => {
   const [tutorials, setTutorials] = useState([]);
