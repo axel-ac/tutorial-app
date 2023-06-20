@@ -10,8 +10,8 @@ const AddTutorial = ({ getTutorials }) => {
     const newTutorial = { title, description }; //yeni veri
     postTutorial(newTutorial);
     console.log(newTutorial);
-    setTitle("");
     setDescription("");
+    setTitle("");
   };
 
   const postTutorial = async (newTutorial) => {
@@ -24,7 +24,7 @@ const AddTutorial = ({ getTutorials }) => {
     getTutorials();
   };
 
-  // console.log(title, description)
+  console.log(title, description)
 
   return (
     <div className="container text-center mt-4">

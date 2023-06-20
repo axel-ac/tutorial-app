@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const EditTutorial = ({ item, getTutorials }) => {
   console.log(item);
@@ -47,7 +47,7 @@ const EditTutorial = ({ item, getTutorials }) => {
                 className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
-              ></button>
+              />
             </div>
             <div className="modal-body">
               <div className="mb-3">
